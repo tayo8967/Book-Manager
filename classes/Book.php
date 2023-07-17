@@ -45,6 +45,14 @@
 
             return $stmt;
         }
+
+        public function removeBook($id){
+            $query = "DELETE FROM book WHERE Id = $id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+
+            header('Location: ../index.php');
+        }
     }
 
 ?>

@@ -47,9 +47,11 @@ $books = $book->getAllBooks();
                             <i class="bi bi-pencil-square"></i>
                         </button>
                     </a>
-                    <button class="btn btn-danger">
-                        <i class="bi bi-trash"></i>
-                    </button>
+                    <a href="<?php echo 'views/remove_book.php?id=' . $row['Id']; ?>">
+                        <button class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </a>
                 </td>
             </tr>
         <?php endwhile; ?>

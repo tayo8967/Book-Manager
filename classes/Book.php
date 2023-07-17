@@ -14,9 +14,18 @@
             return $stmt; 
         }
 
-        public function addBook(){
-            $query = "INSERT INTO "
+        public function addBook($title, $author, $description, $publish){
+            $query = "INSERT INTO book (Title, Author, Description, Published_Year) VALUES ('$title', '$author', '$description', '$publish')";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+
+            header('Location: ../index.php');
         }
+
+        public function updateBook(){
+            
+        }
+
     }
 
 ?>

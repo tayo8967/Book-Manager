@@ -8,7 +8,6 @@ $database = new Database();
 $db = $database->connect();
 $book = new Book($db);
 
-
 // Get all books
 $books = $book->getAllBooks();
 ?>
@@ -19,7 +18,7 @@ $books = $book->getAllBooks();
     <h1 style="margin-right: 10px;">Book List</h1>
     <a href="views/add_book_form.php">
         <button class="btn btn-success">
-            <i class="bi bi-book-fill"></i>
+        <i class="bi bi-plus-square"></i>
             New Book
         </button>
     </a>
@@ -33,6 +32,7 @@ $books = $book->getAllBooks();
             <th>Description</th>
             <th>Author</th>
             <th>Published Year</th>
+            <th style="width: 106px;"></th>
         </tr>
         <?php while ($row = $books->fetch(PDO::FETCH_ASSOC)) : ?>
             <tr>
@@ -41,6 +41,14 @@ $books = $book->getAllBooks();
                 <td><?php echo $row['Description']; ?>
                 <td><?php echo $row['Author']; ?></td>
                 <td><?php echo $row['Published_Year']; ?></td>
+                <td>
+                    <button class="btn btn-primary">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button class="btn btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
             </tr>
         <?php endwhile; ?>
     </table>

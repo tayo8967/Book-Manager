@@ -12,11 +12,11 @@ $book = new Book($db);
 $books = $book->getAllBooks();
 ?>
 
-<title>Bookstore - Book List</title>
+<title>Book Manager - Book List</title>
 
 <div style="display: flex; align-items: center;">
     <h1 style="margin-right: 10px;">Book List</h1>
-    <a href="views/add_book_form.php">
+    <a href="views/book_form.php">
         <button class="btn btn-success">
         <i class="bi bi-plus-square"></i>
             New Book
@@ -29,7 +29,7 @@ $books = $book->getAllBooks();
         <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Description</th>
+            <th style="width: 700px;;">Description</th>
             <th>Author</th>
             <th>Published Year</th>
             <th style="width: 106px;"></th>
@@ -42,9 +42,11 @@ $books = $book->getAllBooks();
                 <td><?php echo $row['Author']; ?></td>
                 <td><?php echo $row['Published_Year']; ?></td>
                 <td>
-                    <button class="btn btn-primary">
-                        <i class="bi bi-pencil-square"></i>
-                    </button>
+                    <a href="<?php echo 'views/book_form.php?id=' . $row['Id']; ?>">
+                        <button class="btn btn-primary">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                    </a>
                     <button class="btn btn-danger">
                         <i class="bi bi-trash"></i>
                     </button>
